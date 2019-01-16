@@ -7,7 +7,7 @@ This repository contains Ruby integrations for [Elasticsearch](http://elasticsea
 * various extensions and utilities.
 
 For integration with Ruby models and Rails applications,
-see the <https://github.com/elasticsearch/elasticsearch-rails> project.
+see the <https://github.com/onemedical/elasticsearch-rails> project.
 
 ## Compatibility
 
@@ -22,35 +22,24 @@ To use the **Elasticsearch 0.90** API, install the **0.4.x** gem version or use 
 
 ## Installation
 
-Install the `elasticsearch` package from [Rubygems](https://rubygems.org/gems/elasticsearch):
-
-    gem install elasticsearch
-
 To use an unreleased version, either add it to your `Gemfile` for [Bundler](http://gembundler.com):
 
-    gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
-
-or install it from a source code checkout:
-
-    git clone https://github.com/elasticsearch/elasticsearch-ruby.git
-    cd elasticsearch-ruby/elasticsearch
-    bundle install
-    rake install
+    gem 'elasticsearch-v2', git: 'git://github.com/onemedical/elasticsearch-ruby.git'
 
 ## Usage
 
-The [`elasticsearch`](https://github.com/elasticsearch/elasticsearch-ruby/tree/master/elasticsearch)
+The [`elasticsearch-v2`](https://github.com/onemedical/elasticsearch-ruby/tree/onemedical/es2namespace/elasticsearch-v2)
 library is a wrapper for two separate libraries:
 
-* [`elasticsearch-transport`](https://github.com/elasticsearch/elasticsearch-ruby/tree/master/elasticsearch-transport),
+* [`elasticsearch-transport-v2`](https://github.com/onemedical/elasticsearch-ruby/tree/onemedical/es2namespace/elasticsearch-transport-v2),
   which provides a low-level Ruby client for connecting to an [Elasticsearch](http://elasticsearch.org) cluster
-* [`elasticsearch-api`](https://github.com/elasticsearch/elasticsearch-ruby/tree/master/elasticsearch-api),
+* [`elasticsearch-api-v2`](https://github.com/onemedical/elasticsearch-ruby/tree/onemedical/es2namespace/elasticsearch-api-v2),
   which provides a Ruby API for the Elasticsearch RESTful API
 
 ```ruby
-require 'elasticsearch'
+require 'elasticsearch_v2'
 
-client = Elasticsearch::Client.new log: true
+client = ElasticsearchV2::Client.new log: true
 
 client.transport.reload_connections!
 
@@ -71,11 +60,11 @@ _Keep in mind, that for optimal performance, you should use a HTTP library which
 
 This repository contains these additional Ruby libraries:
 
-* [`elasticsearch-extensions`](https://github.com/elastic/elasticsearch-ruby/tree/master/elasticsearch-extensions),
+* [`elasticsearch-extensions-v2`](https://github.com/onemedical/elasticsearch-ruby/tree/onemedical/es2namespace/elasticsearch-extensions-v2),
    which provides a set of extensions to the base library,
-* [`elasticsearch-dsl`](https://github.com/elastic/elasticsearch-ruby/tree/master/elasticsearch-dsl),
+* [`elasticsearch-dsl-v2`](https://github.com/onemedical/elasticsearch-ruby/tree/onemedical/es2namespace/elasticsearch-dsl-v2),
   which provides a Ruby API for the [Elasticsearch Query DSL](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl.html),
-* [`elasticsearch-watcher`](https://github.com/elastic/elasticsearch-ruby/tree/master/elasticsearch-watcher),
+* [`elasticsearch-watcher-v2`](https://github.com/onemedical/elasticsearch-ruby/tree/onemedical/es2namespace/elasticsearch-watcher-v2),
   which provides Ruby API for the [_Watcher_](https://www.elastic.co/products/watcher) plugin.
 
 Please see their respective READMEs for information and documentation.
@@ -87,7 +76,7 @@ Please see their respective READMEs for information and documentation.
 To work on the code, clone and bootstrap the project first:
 
 ```
-git clone https://github.com/elasticsearch/elasticsearch-ruby.git
+git clone https://github.com/onemedical/elasticsearch-ruby.git
 cd elasticsearch-ruby/
 rake setup
 rake bundle

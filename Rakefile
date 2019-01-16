@@ -1,6 +1,6 @@
 require 'pathname'
 
-subprojects = %w| elasticsearch elasticsearch-transport elasticsearch-api elasticsearch-extensions |
+subprojects = %w| elasticsearch-v2 elasticsearch-transport-v2 elasticsearch-api-v2 elasticsearch-extensions-v2 |
 __current__ = Pathname( File.expand_path('..', __FILE__) )
 
 # TODO: Figure out "bundle exec or not"
@@ -219,20 +219,20 @@ namespace :test do
   namespace :cluster do
     desc "Start Elasticsearch nodes for tests"
     task :start do
-      require 'elasticsearch/extensions/test/cluster'
-      Elasticsearch::Extensions::Test::Cluster.start
+      require 'elasticsearch_v2/extensions/test/cluster'
+      ElasticsearchV2::Extensions::Test::Cluster.start
     end
 
     desc "Stop Elasticsearch nodes for tests"
     task :stop do
-      require 'elasticsearch/extensions/test/cluster'
-      Elasticsearch::Extensions::Test::Cluster.stop
+      require 'elasticsearch_v2/extensions/test/cluster'
+      ElasticsearchV2::Extensions::Test::Cluster.stop
     end
 
     task :status do
-      require 'elasticsearch/extensions/test/cluster'
-      (puts "\e[31m[!] Test cluster not running\e[0m"; exit(1)) unless Elasticsearch::Extensions::Test::Cluster.running?
-      Elasticsearch::Extensions::Test::Cluster.__print_cluster_info(ENV['TEST_CLUSTER_PORT'] || 9250)
+      require 'elasticsearch_v2/extensions/test/cluster'
+      (puts "\e[31m[!] Test cluster not running\e[0m"; exit(1)) unless ElasticsearchV2::Extensions::Test::Cluster.running?
+      ElasticsearchV2::Extensions::Test::Cluster.__print_cluster_info(ENV['TEST_CLUSTER_PORT'] || 9250)
     end
   end
 end

@@ -9,7 +9,7 @@
 require 'multi_json'
 require 'oj'
 
-require 'elasticsearch'
+require 'elasticsearch_v2'
 
 require 'bunny'
 
@@ -21,7 +21,7 @@ channel  = connection.create_channel
 queue    = channel.queue 'examples.elasticsearch', auto_delete: true
 exchange = channel.default_exchange
 
-elasticsearch = Elasticsearch::Client.new log:true
+elasticsearch = ElasticsearchV2::Client.new log:true
 
 elasticsearch.indices.delete index: 'rabbit' rescue nil
 

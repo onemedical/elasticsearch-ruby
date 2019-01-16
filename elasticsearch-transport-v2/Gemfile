@@ -1,0 +1,16 @@
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in elasticsearch-transport.gemspec
+gemspec
+
+if File.exist? File.expand_path("../../elasticsearch-api-v2/elasticsearch-api-v2.gemspec", __FILE__)
+  gem 'elasticsearch-api-v2', :path => File.expand_path("../../elasticsearch-api-v2", __FILE__), :require => false
+end
+
+if File.exist? File.expand_path("../../elasticsearch-extensions-v2/elasticsearch-extensions-v2.gemspec", __FILE__)
+  gem 'elasticsearch-extensions-v2', :path => File.expand_path("../../elasticsearch-extensions-v2", __FILE__), :require => false
+end
+
+if File.exist? File.expand_path("../../elasticsearch-v2/elasticsearch-v2.gemspec", __FILE__)
+  gem 'elasticsearch-v2', :path => File.expand_path("../../elasticsearch-v2", __FILE__), :require => false
+end
